@@ -1,0 +1,69 @@
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+
+# =========================
+# Maven
+# =========================
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE Files
+# =========================
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# =========================
+# Build files
+# =========================
+*.jar
+*.war
+*.ear
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.swp
+*.swo
+
+# =========================
+# Node modules (if frontend added later)
+# =========================
+node_modules/
+
+# =========================
+# Database files
+# =========================
+*.db
+*.sqlite
+*.sqlite3
