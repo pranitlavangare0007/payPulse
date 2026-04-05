@@ -78,7 +78,7 @@ public class SecurityConfiguration {
         CorsConfiguration c = new CorsConfiguration();
         c.setAllowCredentials(true);
         c.setAllowedOriginPatterns(List.of(
-                "http://localhost:5173"
+                "https://69d2441c2b469f440d817c08--paypulse-banking.netlify.app"
 
         ));
         c.addAllowedHeader("*");
