@@ -53,7 +53,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/login", "/register","/","/send-otp","/verify-otp" ).permitAll()
+                        .requestMatchers("/login", "/register","/send-otp","/","/verify-otp" ).permitAll()
                         .anyRequest().authenticated()
                 )
 
@@ -89,6 +89,8 @@ public class SecurityConfiguration {
         src.registerCorsConfiguration("/**", c);
         return src;
     }
+
+
 
     @Bean
     public AuthenticationManager authenticationManager(
