@@ -1,5 +1,6 @@
 package bank_services_app.services;
 
+import bank_services_app.models.AccountDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -24,4 +25,23 @@ public class EmailService {
 
         mailSender.send(message);
     }
+
+    public void sendAccountDetailsEmail(String to, AccountDetails details){
+
+        SimpleMailMessage message = new SimpleMailMessage();
+
+        message.setTo(to);
+        message.setSubject("PayPulse Account Details");
+        message.setText(
+                "Welcome to PayPulse Bank\n\n" +
+                        "Your Account Number is : " + details.getAccountNumber() + "\n" +
+                        " Account type is : " + details.getAccountType() + "\n"+
+                        " Account purpose is : " + details.getAccountPurpose() + "\n"+
+                        " Upi Id is : " + details.getUpiId()
+        );
+
+        mailSender.send(message);
+    }
+
+
 }

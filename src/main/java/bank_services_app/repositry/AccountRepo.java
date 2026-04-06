@@ -13,5 +13,6 @@ public interface AccountRepo extends JpaRepository<AccountDetails,Long> {
    List<AccountDetails> findAllByCustomer(Customer customer);
    Optional<AccountDetails> findByUpiId(String upiId);
     Optional<AccountDetails> findByAccountNumber(String accountNumber);
+    Long countByCustomer(Customer customer);
 
 }

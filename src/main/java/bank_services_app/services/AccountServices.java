@@ -19,8 +19,10 @@ import java.util.List;
 public class AccountServices {
 
 private final AccountRepo accountRepo;
-public AccountServices(AccountRepo accountRepo , TransactionRepo transactionRepo) {
+private final EmailService emailService;
+public AccountServices(AccountRepo accountRepo , EmailService emailService) {
         this.accountRepo = accountRepo;
+        this.emailService=emailService;
 }
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
@@ -47,11 +49,12 @@ public AccountServices(AccountRepo accountRepo , TransactionRepo transactionRepo
         }
     }
     public AccountResponse openAccount(AccountRecord accountRecord, Customer customer) {
+        Long count = accountRepo.countByCustomer(customer);
+        if(count>=3) throw new AccountCreationLimitReachedException(" Reached account Creation Limit");
+
         AccountDetails accountDetails = new AccountDetails();
 
         verifyMpinFormat(accountRecord.mpin());
-
-
 
         accountDetails.setAccountType(accountRecord.accountType());
         accountDetails.setMpin(encoder.encode(accountRecord.mpin()));
@@ -62,9 +65,7 @@ public AccountServices(AccountRepo accountRepo , TransactionRepo transactionRepo
 
         accountDetails =  accountRepo.save(accountDetails);
 
-
-
-
+emailService.sendAccountDetailsEmail(customer.getEmail(), accountDetails);
           return new AccountResponse(
                 accountDetails.getAccountNumber(),
                 accountDetails.getAccountType(),

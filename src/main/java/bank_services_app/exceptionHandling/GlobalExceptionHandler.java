@@ -43,6 +43,13 @@ public class GlobalExceptionHandler {
                 HttpStatus.BAD_REQUEST
         );
     }
+    @ExceptionHandler(AccountCreationLimitReachedException.class)
+    public ResponseEntity<ErrorResponse> handleAccountCreation(AccountCreationLimitReachedException ex){
+        return new ResponseEntity<>(
+                new ErrorResponse(400, ex.getMessage(), LocalDateTime.now()),
+                HttpStatus.BAD_REQUEST
+        );
+    }
 
     @ExceptionHandler(InvalidMpin.class)
     public ResponseEntity<ErrorResponse> handleMpin(InvalidMpin ex){
