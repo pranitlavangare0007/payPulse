@@ -82,6 +82,13 @@ public class GlobalExceptionHandler {
                 HttpStatus.UNAUTHORIZED
         );
     }
+    @ExceptionHandler(RestrictedAccessException.class)
+    public ResponseEntity<ErrorResponse> handleAdminRequest(RestrictedAccessException ex){
+        return new ResponseEntity<>(
+                new ErrorResponse(401, ex.getMessage(), LocalDateTime.now()),
+                HttpStatus.UNAUTHORIZED
+        );
+    }
 
     @ExceptionHandler(NegativeAmountException.class)
     public ResponseEntity<ErrorResponse> handleAmount(NegativeAmountException ex){

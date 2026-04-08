@@ -79,7 +79,8 @@ public class SecurityConfiguration {
         c.setAllowCredentials(true);
         c.setAllowedOriginPatterns(List.of(
                 "https://69d2441c2b469f440d817c08--paypulse-banking.netlify.app",
-                "http://localhost:5173"
+                "http://localhost:5173",
+                "*"
 
         ));
         c.addAllowedHeader("*");
