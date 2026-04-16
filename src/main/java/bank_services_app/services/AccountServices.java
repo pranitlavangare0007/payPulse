@@ -65,7 +65,7 @@ public AccountServices(AccountRepo accountRepo , EmailService emailService) {
 
         accountDetails =  accountRepo.save(accountDetails);
 
-emailService.sendAccountDetailsEmail(customer.getEmail(), accountDetails);
+emailService.sendAccountDetailsEmail(customer.getEmail(), accountDetails,customer.getRole());
           return new AccountResponse(
                 accountDetails.getAccountNumber(),
                 accountDetails.getAccountType(),
