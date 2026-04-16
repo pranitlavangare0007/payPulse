@@ -68,7 +68,7 @@ public class CustomerController {
         );
 
 
-        LoginResponse loginResponse = new LoginResponse(token,dbUser.getUsername());
+        LoginResponse loginResponse = new LoginResponse(token,dbUser.getUsername(),dbUser.getRole());
 
         return new ResponseEntity<>(loginResponse,HttpStatus.OK);
     }
