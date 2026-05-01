@@ -4,7 +4,7 @@
 
 The backend of PayPulse is a production-grade REST API built with **Spring Boot 4**, **Spring Security**, and **JWT**. It handles all core banking operations — account management, UPI/IMPS fund transfers, transaction processing, MPIN verification, and email notifications — with PostgreSQL as the database, deployed on **Render**.
 
-🔗 **Frontend Repo:** [bank-app-frontend](https://github.com/pranitlavangare0007/bank-app-frontend)  
+🔗 **Frontend Repo:** [bank-app-frontend]([https://github.com/pranitlavangare0007/bank-app-frontend](https://github.com/pranitlavangare0007/payPulse-))  
 🔗 **Live Demo:** [paypulse-banking.netlify.app](https://69d2441c2b469f440d817c08--paypulse-banking.netlify.app)
 
 ---
